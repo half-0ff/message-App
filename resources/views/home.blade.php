@@ -7,7 +7,6 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
-
                 <div class="card-body"> 
                     <a href= "{{ route('message.create') }}"
                     class= "btn btn-primary">create message</a>
@@ -21,7 +20,12 @@
 
                     <table class="table">
                         <thead>
-                        <tr><th scope="col">#</th>
+                            
+                        <tr>
+                        
+                        <th scope="col">Email</th>
+
+                        <th scope="col">#</th>
                             <th scope="col">User Name</th>
                             <th scope="col">Content</th>
                         </tr>
@@ -29,6 +33,7 @@
                         <tbody>
                         @foreach($messages as $key => $message)
                         <tr>
+                            <th > {{ $message -> user -> email }}
                             <th >{{ $key+1 }} </th>
                             <th scope="row">{{$message -> user -> name }}</th>
                             <th>{{ $message ->content }} </th>
